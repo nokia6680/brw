@@ -1,0 +1,46 @@
+include ../helpers/mixins
+block variables
+
+doctype html
+html(lang="ru-RU")
+    head
+        meta(charset="utf-8")
+        title #{title}
+        <!--[if IE]>
+        meta(http-equiv='X-UA-Compatible', content="IE = edge")
+        <![endif]-->
+        meta(name="viewport" content="width=device-width,initial-scale=1")
+        meta(name="keywords" content="")
+        link(rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css")
+        link(rel="stylesheet" type='text/css' href="static/css/styles.css")
+        link(rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180.png")
+        link(rel="icon" type="image/png" sizes="32x32" href="/favicon_32x32.png")
+        link(rel="icon" type="image/png" sizes="16x16" href="/favicon_16x16.png")
+        link(rel="mask-icon" href="/favicon_32x32.svg" color="#5bbad5")
+        link(rel="icon" href="/favicon_32x32.svg" sizes="any" type="image/svg+xml") 
+        meta(name="theme-color" content="#ffffff")
+        //test ver only
+        meta(name="robots" content="noindex")
+        //end of test ver only
+    body.body
+        include ../modules/header/header
+        main.main
+            include ../modules/blocks/intro
+            include ../modules/blocks/map
+            include ../modules/blocks/about
+            include ../modules/blocks/calendar
+            include ../modules/blocks/test
+            include ../modules/blocks/news
+            include ../modules/blocks/guide
+        include ../modules/footer/footer
+        include ../modules/blocks/popup-age
+        include ../modules/blocks/popup-city
+        include ../modules/blocks/popup-video
+        script(src="static/js/vendor/jquery-3.3.1.min.js")
+
+        script(src="https://unpkg.com/swiper@8/swiper-bundle.min.js")
+        script(src="static/js/slider.js")
+        script(src="static/js/tabs.js")
+        script(src="static/js/details-close.js")
+        script(src="static/js/main.js")
+        block script

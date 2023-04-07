@@ -1,0 +1,19 @@
+mixin calendarItem(date, datetime, image, name, description, link)
+    .calendar__item.swiper-slide
+        a(href="" +link target='_self').calendar__link
+            time(datetime="" +datetime).calendar__time=date
+            
+            picture.calendar__frame
+                source(srcset="static/images/content/" +image +'.webp' type="image/webp")
+                img(src="static/images/content/" +image +'.jpg' width='' height='' alt='' +name).calendar__frame-image
+            h3.calendar__name=name
+            p.calendar__description=description
+
+mixin newsItem(image, name, description, link)
+    li.news__item
+        a(href="" +link target='_self').news__link
+            picture.news__frame
+                source(srcset="static/images/content/" +image +'.webp' type="image/webp")
+                img(src="static/images/content/" +image +'.jpg' width='' height='' alt='' +name).news__frame-image
+            h3.news__name=name
+            p.news__description=description

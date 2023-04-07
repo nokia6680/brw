@@ -1,0 +1,120 @@
+.popup-city {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    @include flex-setting(column, flex-start, center);
+    padding-top: toRem(20);
+
+    z-index: 999;
+
+    display: none;
+
+    &.active {
+        display: flex;
+    }
+
+    &__wrapper {
+        width: calc(100% - 40px);
+        max-width: toRem(414);
+        height: auto;
+        position: relative;
+        background: #FFFFFF;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25), 0px 10px 20px rgba(0, 0, 0, 0.15);
+        @include flex-setting(column, flex-start, center);
+        padding: toRem(20) toRem(20) toRem(27) toRem(20);
+
+        &::before {
+            position: absolute;
+            content: '';
+
+            width: 100%;
+            height: 20px;
+
+            background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+            top: 75px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        &::after {
+            position: absolute;
+            content: '';
+
+            width: 100%;
+            height: 40px;
+
+            background: linear-gradient(0deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+            bottom: 27px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    &__closer {
+        position: absolute;
+        top: toRem(20);
+        right: toRem(20);
+        width: toRem(30);
+        height: toRem(30);
+        background-color: white;
+        border: none;
+
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-image: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13 1.02892L6.98552 7.01444M6.98552 7.01444L0.971082 13M6.98552 7.01444L12.971 13.0289M6.98552 7.01444L1 1' stroke='black' stroke-width='2'/%3E%3C/svg%3E%0A");
+
+        z-index: 10;
+    }
+
+    &__title {
+        align-self: flex-start;
+        @include font-setting($primary-font, toRem(22), toRem(25), 700, #000);
+        margin-bottom: toRem(30);
+        text-align: left;
+    }
+
+    &__list {
+        width: 100%;
+        height: 100%;
+        max-height: toRem(376);
+        padding-top: toRem(20);
+        padding-bottom: toRem(30);
+        overflow: auto;
+        @include flex-setting(column, flex-start, flex-start);
+        gap: toRem(10);
+
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__item {
+        width: 100%;
+        height: auto;
+        display: inline-flex;
+
+        cursor: pointer;
+
+        span {
+            @include font-setting($primary-font, toRem(22), toRem(25), 500, #000);
+            transition: 0.3s $cubic;
+        }
+
+        &.active,
+        &:active {
+            span {
+                color: #FF0181;
+                transition: 0.3s $cubic;
+            }
+        }
+    }
+}

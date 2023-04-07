@@ -1,0 +1,258 @@
+.calendar {
+    width: 100%;
+    @include flex-setting(column, flex-start, center);
+    margin-left: auto;
+    margin-right: auto;
+    max-width: toRem(414);
+    margin-bottom: toRem(80);
+    overflow: hidden;
+
+    &__title {
+        margin-bottom: toRem(40);
+        color: #1a1a1a;
+    }
+
+    &__list {
+        width: 100%;
+        padding-left: toRem(20);
+        padding-right: toRem(20);
+    }
+
+    &__item {
+        width: 100%;
+        max-width: toRem(250);
+        height: auto;
+    }
+
+    &__link {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        @include flex-setting(column, flex-start, flex-start);
+        position: relative;
+        padding: toRem(10) toRem(10) toRem(30) toRem(10);
+        border: 1px solid #E4E4E5;
+
+        text-decoration: none;
+
+        &--last {
+            border-color: #FF0181;
+            background-color: #FF0181;
+            @include font-setting($primary-font, toRem(22), toRem(25), 500, $white);
+            justify-content: center;
+            padding: toRem(26) toRem(26);
+            transition: 0.3s $cubic;
+
+            &::after {
+                position: absolute;
+                content: '';
+
+                width: toRem(51);
+                height: toRem(9);
+
+                background-position: 50% 50%;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-image: url("data:image/svg+xml,%3Csvg width='51' height='9' viewBox='0 0 51 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50.3536 4.85355C50.5488 4.65829 50.5488 4.34171 50.3536 4.14645L47.1716 0.964466C46.9763 0.769204 46.6597 0.769204 46.4645 0.964466C46.2692 1.15973 46.2692 1.47631 46.4645 1.67157L49.2929 4.5L46.4645 7.32843C46.2692 7.52369 46.2692 7.84027 46.4645 8.03553C46.6597 8.2308 46.9763 8.2308 47.1716 8.03553L50.3536 4.85355ZM0 5H50V4H0V5Z' fill='white'/%3E%3C/svg%3E");
+                top: 50%;
+                right: toRem(25);
+                transform: translateY(-50%);
+                transition: 0.3s $cubic;
+            }
+
+            &:active {
+                background-color: $white;
+                color: #FF0181;
+                transition: 0.3s $cubic;
+                &::after {
+                    background-image: url("data:image/svg+xml,%3Csvg width='51' height='9' viewBox='0 0 51 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50.3536 4.85355C50.5488 4.65829 50.5488 4.34171 50.3536 4.14645L47.1716 0.964466C46.9763 0.769204 46.6597 0.769204 46.4645 0.964466C46.2692 1.15973 46.2692 1.47631 46.4645 1.67157L49.2929 4.5L46.4645 7.32843C46.2692 7.52369 46.2692 7.84027 46.4645 8.03553C46.6597 8.2308 46.9763 8.2308 47.1716 8.03553L50.3536 4.85355ZM0 5H50V4H0V5Z' fill='%23FF0181'/%3E%3C/svg%3E");
+                    transition: 0.3s $cubic;
+                }
+            }
+        }
+    }
+
+    &__time {
+        position: absolute;
+        @include flex-setting(column, center, center);
+        @include font-setting($primary-font, toRem(14), toRem(20), 700, #fff);
+        padding: toRem(5) toRem(10);
+        background-color: #FF0181;
+        top: toRem(10);
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+    }
+
+    &__frame {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 93.47826086956522%;
+        margin-bottom: toRem(15);
+
+        &-image {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            object-fit: cover;
+        }
+    }
+
+    &__name {
+        @include font-setting($primary-font, toRem(22), toRem(25), 500, #000);
+        margin-bottom: toRem(15);
+    }
+
+    &__description {
+        @include font-setting($primary-font, toRem(14), toRem(16), 500, #6C6C6C);
+        text-align: left;
+    }
+}
+@include min-screen(768px) {
+    .calendar {
+        max-width: 100%;
+        margin-bottom: toRem(80);
+
+        &__title {
+            margin-bottom: toRem(60);
+        }
+
+        &__list {
+            width: 100%;
+            --padding: calc((100% - 708px) / 2);
+            padding-left: var(--padding);
+            padding-right: var(--padding);
+        }
+
+        &__item {
+            max-width: toRem(330);
+        }
+
+        &__link {
+            padding: toRem(20) toRem(20) toRem(30) toRem(20);
+
+            &--last {
+                padding: toRem(26) toRem(36);
+
+                &:hover {
+                    background-color: $white;
+                    color: #FF0181;
+                    transition: 0.3s $cubic;
+                    &::after {
+                        background-image: url("data:image/svg+xml,%3Csvg width='51' height='9' viewBox='0 0 51 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50.3536 4.85355C50.5488 4.65829 50.5488 4.34171 50.3536 4.14645L47.1716 0.964466C46.9763 0.769204 46.6597 0.769204 46.4645 0.964466C46.2692 1.15973 46.2692 1.47631 46.4645 1.67157L49.2929 4.5L46.4645 7.32843C46.2692 7.52369 46.2692 7.84027 46.4645 8.03553C46.6597 8.2308 46.9763 8.2308 47.1716 8.03553L50.3536 4.85355ZM0 5H50V4H0V5Z' fill='%23FF0181'/%3E%3C/svg%3E");
+                        transition: 0.3s $cubic;
+                    }
+                }
+            }
+        }
+
+        &__time {
+            padding: toRem(4) toRem(9);
+            top: toRem(20);
+        }
+
+        &__frame {
+            padding-bottom: 100%;
+            margin-bottom: toRem(20);
+        }
+
+        &__name {
+            margin-bottom: toRem(10);
+            max-width: toRem(230);
+        }
+
+        &__description {
+            font-size: toRem(17);
+            line-height: toRem(25);
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 5;
+            overflow: hidden;
+            max-width: toRem(230);
+        }
+    }
+}
+@include min-screen(1330px) {
+    .calendar {
+        max-width: 100%;
+        margin-bottom: toRem(235);
+
+        &__title {
+            margin-bottom: toRem(60);
+        }
+
+        &__list {
+            width: 100%;
+            --padding: calc((100% - 1170px) / 2);
+            padding-left: var(--padding);
+            padding-right: var(--padding);
+        }
+
+        &__item {
+            max-width: toRem(350);
+        }
+
+        &__link {
+            padding: toRem(20) toRem(20) toRem(30) toRem(20);
+
+            &--last {
+                padding: toRem(26) toRem(36);
+
+                &:hover {
+                    background-color: $white;
+                    color: #FF0181;
+                    transition: 0.3s $cubic;
+                    &::after {
+                        background-image: url("data:image/svg+xml,%3Csvg width='51' height='9' viewBox='0 0 51 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50.3536 4.85355C50.5488 4.65829 50.5488 4.34171 50.3536 4.14645L47.1716 0.964466C46.9763 0.769204 46.6597 0.769204 46.4645 0.964466C46.2692 1.15973 46.2692 1.47631 46.4645 1.67157L49.2929 4.5L46.4645 7.32843C46.2692 7.52369 46.2692 7.84027 46.4645 8.03553C46.6597 8.2308 46.9763 8.2308 47.1716 8.03553L50.3536 4.85355ZM0 5H50V4H0V5Z' fill='%23FF0181'/%3E%3C/svg%3E");
+                        transition: 0.3s $cubic;
+                    }
+                }
+            }
+        }
+
+        &__time {
+            padding: toRem(4) toRem(9);
+            top: toRem(20);
+        }
+
+        &__frame {
+            padding-bottom: 100%;
+            margin-bottom: toRem(20);
+        }
+
+        &__name {
+            margin-bottom: toRem(10);
+            max-width: toRem(230);
+        }
+
+        &__description {
+            font-size: toRem(17);
+            line-height: toRem(25);
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 7;
+            overflow: hidden;
+            max-width: toRem(230);
+        }
+    }
+}
+@include min-screen(1920px) {
+    .calendar {
+        margin-bottom: toRem(275);
+
+        &__title {
+            margin-bottom: toRem(80);
+        }
+
+        &__list {
+            --padding: calc((100% - 1600px) / 2);
+        }
+    }
+}

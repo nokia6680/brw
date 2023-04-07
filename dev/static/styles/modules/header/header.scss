@@ -1,0 +1,84 @@
+.header {
+    width: 100%;
+
+    @include flex-setting(row, space-between, center);
+    --width: calc(100% - 335px);
+    padding: toRem(16) calc(var(--width) / 2);
+    background-color: $white;
+
+    position: relative;
+
+    border-bottom: 1px solid #EBEDEF;
+
+    &__logo {
+        display: block;
+        min-width: toRem(183);
+        width: toRem(183);
+        height: toRem(23);
+
+        &-link {
+            width: inherit;
+            height: inherit;
+        }
+
+        &-img {
+            width: inherit;
+            height: inherit;
+            object-fit: contain;
+        }
+    }
+
+    &__toggle {
+        @include flex-setting(column, center, center);
+
+        width: toRem(22);
+        height: toRem(22);
+
+        background-image: url("data:image/svg+xml,%3Csvg width='22' height='21' viewBox='0 0 22 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect y='0.5' width='22' height='2' fill='%23191919'/%3E%3Crect y='9.5' width='22' height='2' fill='%23191919'/%3E%3Crect y='18.5' width='22' height='2' fill='%23191919'/%3E%3C/svg%3E");
+        background-size: toRem(22) toRem(21);
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+
+        background-color: transparent;
+        border: none;
+
+        &.is-active {
+            background-image: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13 1.02889L6.98552 7.01441M6.98552 7.01441L0.971082 12.9999M6.98552 7.01441L12.971 13.0289M6.98552 7.01441L1 0.999969' stroke='black' stroke-width='2'/%3E%3C/svg%3E");
+            background-size: toRem(14) toRem(14);
+        }
+    }
+}
+
+@include min-screen(768px) {
+    .header {
+        padding-left: toRem(30);
+        padding-right: toRem(30);
+        padding-top: toRem(18.5);
+        padding-bottom: toRem(18.5);
+
+        border-bottom: none;
+    }
+}
+
+@include min-screen(1330px) {
+    .header {
+        --width: calc(100% - 1170px);
+        padding: toRem(26) calc(var(--width) / 2);
+
+        &__toggle {
+            display: none;
+        }
+    }
+}
+
+@include min-screen(1920px) {
+    .header {
+        --width: calc(100% - 1600px);
+        padding: toRem(50) calc(var(--width) / 2);
+
+        &__logo {
+            width: toRem(289);
+            height: toRem(37);
+        }
+    }
+}

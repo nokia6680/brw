@@ -1,0 +1,243 @@
+.guide {
+    width: 100%;
+
+    @include flex-setting(column, flex-start, center);
+
+    padding: toRem(40) 0 toRem(60) 0;
+    background-color: #F9F9F9;
+
+    &__title {
+        margin-bottom: toRem(40);
+        color: #000;
+    }
+
+    &__frame {
+        @include flex-setting(column, center, center);
+        width: toRem(180);
+        height: toRem(252);
+        margin-bottom: toRem(40);
+    }
+
+    &__info {
+        width: 100%;
+        @include flex-setting(column, flex-start, center);
+    }
+
+    &__preview,
+    &__description {
+        display:  none;
+    }
+
+    &__link {
+        width: auto;
+        @include flex-setting(column, center, center);
+        @include font-setting($primary-font, toRem(11), toRem(13), 700, #1a1a1a);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: 1px solid #E4E4E5;
+        background-color: transparent;
+        padding: toRem(21) toRem(39);
+        transition: 0.3s $cubic;
+
+        cursor: pointer;
+        outline: none;
+
+        &:active {
+            background-color: #FF0181;
+            border-color: #FF0181;
+            color: #fff;
+            transition: 0.3s $cubic;
+        }
+    }
+}
+
+@include min-screen(768px) {
+    .guide {
+        --padding: calc((100% - 676px) / 2);
+        display: grid;
+        grid-template-areas:
+            'image title'
+            'image info'
+        ;
+        grid-template-columns: toRem(253) 1fr;
+        grid-auto-rows: 35px 1fr;
+        grid-column-gap: toRem(46);
+        grid-row-gap: toRem(77);
+        justify-content: space-between;
+        align-items: start;
+        padding: toRem(50) var(--padding) toRem(70) var(--padding);
+
+        &__title {
+            display: inline-flex;
+            width: auto;
+            grid-area: title;
+            margin-bottom: toRem(77);
+            text-align: left;
+            padding-left: toRem(16);
+
+            &::after {
+                left: 0;
+                transform: translateX(0);
+            }
+        }
+
+        &__frame {
+            grid-area: image;
+            width: toRem(253);
+            height: toRem(358);
+            margin-bottom: 0;
+        }
+
+        &__info {
+            height: 100%;
+            grid-area: info;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        &__preview {
+            display: inline-flex;
+            @include font-setting($primary-font, toRem(22), toRem(25), 400, #1a1a1a);
+            text-align: left;
+            margin-bottom: toRem(0);
+        }
+
+        &__link {
+            justify-self: end;
+
+            &:hover {
+                background-color: #1a1a1a;
+                border-color: #1a1a1a;
+                color: #fff;
+                transition: 0.3s $cubic;
+            }
+            &:active {
+                background-color: #FF0181;
+                border-color: #FF0181;
+                color: #fff;
+                transition: 0.3s $cubic;
+            }
+        }
+    }
+}
+
+@include min-screen(1330px) {
+    .guide {
+        --padding: calc((100% - 974px) / 2);
+        display: grid;
+        grid-template-areas:
+            'image title'
+            'image info'
+        ;
+        grid-template-columns: toRem(333) 1fr;
+        grid-auto-rows: minmax(10px, min-content);
+        grid-column-gap: toRem(109);
+        justify-content: space-between;
+        align-items: start;
+
+        padding: toRem(60) var(--padding) toRem(160) var(--padding);
+
+        &__title {
+            display: inline-flex;
+            width: auto;
+            grid-area: title;
+            margin-bottom: toRem(60);
+            text-align: left;
+            padding-left: toRem(20);
+
+            &::after {
+                left: 0;
+                transform: translateX(0);
+            }
+        }
+
+        &__frame {
+            grid-area: image;
+            width: toRem(322);
+            height: toRem(456);
+            margin-bottom: 0;
+        }
+
+        &__info {
+            height: auto;
+            grid-area: info;
+            align-items: flex-start;
+        }
+
+        &__preview {
+            display: inline-flex;
+            @include font-setting($primary-font, toRem(22), toRem(25), 400, #1a1a1a);
+            text-align: left;
+            margin-bottom: toRem(20);
+        }
+
+        &__description {
+            display: inline-flex;
+            @include font-setting($primary-font, toRem(17), toRem(25), 400, #6C6C6C);
+            text-align: left;
+            margin-bottom: toRem(60);
+            max-width: toRem(514);
+        }
+
+        &__link {
+            justify-self: end;
+
+            &:hover {
+                background-color: #1a1a1a;
+                border-color: #1a1a1a;
+                color: #fff;
+                transition: 0.3s $cubic;
+            }
+            &:active {
+                background-color: #FF0181;
+                border-color: #FF0181;
+                color: #fff;
+                transition: 0.3s $cubic;
+            }
+        }
+    }
+}
+@include min-screen(1920px) {
+    .guide {
+        --padding: calc((100% - 1380px) / 2);
+        grid-template-columns: toRem(462) 1fr;
+        grid-column-gap: toRem(156);
+        grid-row-gap: 0;
+        padding: toRem(86) var(--padding) toRem(230) var(--padding);
+
+        &__title {
+            margin-bottom: toRem(90);
+            padding-left: toRem(25);
+        }
+
+        &__frame {
+            width: toRem(462);
+            height: toRem(654);
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        &__preview {
+            font-size: toRem(30);
+            line-height: toRem(41);
+            margin-bottom: toRem(54);
+        }
+
+        &__description {
+            font-size: toRem(20);
+            line-height: toRem(36);
+            margin-bottom: toRem(186);
+            max-width: toRem(738);
+        }
+
+        &__link {
+            font-size: toRem(14);
+            line-height: toRem(16);
+        }
+    }
+}

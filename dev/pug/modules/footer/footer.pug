@@ -1,0 +1,23 @@
+-var footerLinks = [{name:'Интерактивная карта', link:''}, {name:'О проекте', link:''}, {name:'Календарь событий', link:''}, {name:'Новости', link:''}, {name:'Скачать ГИД', link:''}]
+
+footer.footer
+    .footer__head
+        h3.footer__title.section-title E-mail рассылка
+        
+        form(method="post" action="" name="footer-subscribe-form").footer__form
+            b.footer__form-title Подпишитесь на нашу рассылку
+            .footer__form-item
+                input(type="email" name="subscribe-email" id="subscribe-email" placeholder="Ваш e-mail").footer__form-input
+                button(type="submit").footer__form-submit подпишитесь
+                span.footer__form-error Неверно указан e-mail
+            p.footer__form-success Спасибо за подписку!
+    ul.footer__list
+        for i in footerLinks
+            li.footer__list-item
+                a(href="" +i.link target="_self").footer__list-link=i.name
+    .footer__info
+        a(href="" target="_blank").footer__info-link Политика конфиденциальности
+        a(href="" target="_blank").footer__info-link Пользовательское соглашение
+        span.footer__info-copy © Simple Wine News, 2009—2022. Все&nbsp;права&nbsp;защищены
+    .footer__age
+        span 18+

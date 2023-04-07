@@ -1,0 +1,13 @@
+-var headerLinks = [{name:'Интерактивная карта', link:'#places'}, {name:'О проекте', link:'#about'}, {name:'Календарь событий', link:'#calendar'}, {name:'Новости', link:'#news'}, {name:'Скачать ГИД', link:'#guide'}]
+
+header.header
+    .header__logo
+        a(href="index.html" target="_self").header__logo-link
+            img(src="static/images/content/logo.svg" width="183" height="23" alt="SWN").header__logo-img
+            
+    nav.header__nav.nav
+        ul.nav__list
+            for i in headerLinks
+                li.nav__list-item
+                    a(href="" +i.link target="_self").nav__list-link=i.name
+    button(type="button").header__toggle

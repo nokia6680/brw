@@ -1,0 +1,130 @@
+.nav {
+    position: absolute;
+
+    width: 100%;
+
+    height: calc((var(--vh, 1vh) * 100) - 56px);
+    overflow: hidden;
+
+    top: toRem(56);
+    left: 0;
+    @include flex-setting(column, flex-start, center);
+
+    background-color: $white;
+    z-index: 10;
+
+    transform: scaleY(0);
+
+    &.opened {
+        transform: scaleY(1);
+    }
+
+    &__list {
+        width: 100%;
+        max-width: toRem(375);
+        padding: toRem(20) toRem(20) toRem(260) toRem(20);
+
+        @include flex-setting(column, flex-start, flex-start);
+
+        gap: toRem(15);
+
+        position: relative;
+
+        &::after {
+            position: absolute;
+            content: '';
+
+            width: calc(100% - 40px);
+            height: toRem(160);
+
+            background-position: 50% 50%;
+            background-image: url('../images/content/header-bg.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    &__list-item {
+        width: 100%;
+        @include flex-setting(row, flex-start, center);
+    }
+
+    &__list-link {
+        @include font-setting($primary-font, toRem(22), toRem(25), 400, #1a1a1a);
+        text-decoration: none;
+    }
+}
+
+@include min-screen(768px) {
+    .nav {
+        height: auto;
+        top: toRem(60);
+        box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2);
+
+        &__list {
+            padding-bottom: toRem(200);
+            max-width: 100%;
+
+            &::after {
+                height: toRem(115);
+                background-image: url('../images/content/header-bg-2.svg');
+                bottom: toRem(20);
+            }
+        }
+    }
+}
+
+@include min-screen(1330px) {
+    .nav {
+        position: relative;
+        width: auto;
+        top: auto;
+        left: auto;
+
+        transform: none;
+        box-shadow: none;
+
+        &__list {
+            width: auto;
+            padding: 0;
+
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+
+            gap: toRem(40);
+
+            position: relative;
+
+            &::after {
+                display: none;
+            }
+        }
+
+        &__list-item {
+            width: auto;
+        }
+
+        &__list-link {
+            font-size: toRem(14);
+            line-height: toRem(16);
+        }
+    }
+}
+
+@include min-screen(1920px) {
+    .nav {
+        &__list {
+            gap: toRem(50);
+        }
+
+        &__list-link {
+            font-size: toRem(18);
+            line-height: toRem(20);
+        }
+    }
+}

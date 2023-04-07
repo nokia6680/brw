@@ -1,0 +1,37 @@
+.section-title {
+    @include font-setting($primary-font, toRem(16), toRem(18), 500, #E4E4E5);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: toRem(14);
+    position: relative;
+
+    &::after {
+        position: absolute;
+        content: '';
+
+        width: toRem(80);
+        height: toRem(1);
+        background-color: #00DA01;
+
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    @include min-screen(768px) {
+        font-size: toRem(22);
+        line-height: toRem(18);
+        padding-bottom: toRem(17);
+    }
+
+    @include min-screen(1920px) {
+        font-size: toRem(30);
+        line-height: toRem(34);
+        padding-bottom: toRem(24);
+
+        &::after {
+            width: toRem(120);
+        }
+    }
+}

@@ -1,0 +1,245 @@
+.test {
+    width: 100%;
+    max-width: toRem(414);
+    min-height: toRem(514);
+
+    @include flex-setting(column, flex-start, center);
+
+    padding: toRem(60) toRem(40);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: toRem(60);
+
+    // background-image: url('../images/content/test-bg.jpg');
+    // background-position: top center;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+
+    position: relative;
+
+    &__bg {
+        @include flex-setting(column, center, center);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        overflow: hidden;
+
+        &::before {
+            position: absolute;
+            content: '';
+
+            width: 100%;
+            height: 514px;
+
+            background-color: rgba(0, 0, 0, 0.45);
+            top: toRem(0);
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        &-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+    &__info {
+        width: 100%;
+        @include flex-setting(column, flex-start, center);
+    }
+
+    &__title {
+        margin-bottom: toRem(20);
+        z-index: 1;
+    }
+
+    &__description {
+        @include font-setting($primary-font, toRem(32), toRem(36), 500, #fff);
+        text-align: center;
+        z-index: 1;
+    }
+
+    &__about {
+        display: none;
+    }
+
+    &__link {
+        width: auto;
+        @include flex-setting(column, center, center);
+        @include font-setting($primary-font, toRem(11), toRem(13), 700, $white);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: 1px solid #FF0181;
+        background-color: #FF0181;
+        padding: toRem(21) toRem(39);
+        z-index: 1;
+        margin-bottom: 0;
+        margin-top: auto;
+        transition: 0.3s $cubic;
+
+        &:active {
+            background-color: #fff;
+            color:  #FF0181;
+            transition: 0.3s $cubic;
+        }
+    }
+}
+
+@include min-screen(768px) {
+    .test {
+        max-width: toRem(728);
+        min-height: 0;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: toRem(80);
+        padding: 0;
+
+        &__bg {
+            position: relative;
+            top: auto;
+            left: auto;
+            bottom: auto;
+            right: auto;
+            width: 100%;
+            max-width: toRem(374);
+            height: toRem(274);
+            overflow: hidden;
+            margin-right: toRem(20);
+
+            &::before {
+                height: 100%;
+            }
+        }
+
+        &__title {
+            margin-bottom: toRem(38);
+            color: #000;
+        }
+
+        &__description {
+            color: #1a1a1a;
+            font-size: toRem(28);
+            line-height: toRem(32);
+            margin-bottom: toRem(38);
+        }
+
+        &__link {
+            padding: toRem(21) toRem(25);
+
+            &:hover {
+                background-color: #1a1a1a;
+                color: #fff;
+                border-color: #1a1a1a;
+                transition: 0.3s $cubic;
+            }
+
+            &:active {
+                border-color: #E4E4E5;
+                background-color: #fff;
+                color:  #1a1a1a;
+                transition: 0.3s $cubic;
+            }
+        }
+    }
+}
+@include min-screen(1330px) {
+    .test {
+        max-width: toRem(1250);
+        display: grid;
+        grid-template-columns: toRem(802) 1fr;
+        grid-column-gap: toRem(60);
+        justify-content: space-between;
+        align-items: start;
+        margin-bottom: toRem(160);
+
+        position: relative;
+
+        &::after {
+            position: absolute;
+            content: '';
+
+            width: toRem(388);
+            height: toRem(1);
+            background-color: #E4E4E5;
+            bottom: 0;
+            right: 0;
+        }
+
+        &__bg {
+            max-width: 100%;
+            height: 0;
+            padding-bottom: 72.9426433915212%;
+
+            &-image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                height: 100%;
+            }
+        }
+
+        &__title {
+            margin-bottom: toRem(60);
+        }
+
+        &__description {
+            margin-bottom: toRem(20);
+        }
+
+        &__about {
+            display: inline-flex;
+            @include font-setting($primary-font, toRem(17), toRem(25), 400, #1a1a1a);
+            text-align: center;
+            margin-bottom: toRem(116);
+        }
+    }
+}
+@include min-screen(1920px) {
+    .test {
+        max-width: toRem(1600);
+        grid-template-columns: toRem(1030) 1fr;
+        grid-column-gap: toRem(150);
+        margin-bottom: toRem(200);
+
+        &::after {
+            width: toRem(458);
+        }
+
+        &__info {
+            padding-top: toRem(56);
+        }
+
+        &__title {
+            margin-bottom: toRem(38);
+        }
+
+        &__description {
+            margin-bottom: toRem(38);
+            font-size: toRem(32);
+            line-height: toRem(36);
+        }
+
+        &__about {
+            font-size: toRem(20);
+            line-height: toRem(25);
+            margin-bottom: toRem(38);
+        }
+
+        &__link {
+            font-size: toRem(14);
+            line-height: toRem(16);
+        }
+    }
+}
