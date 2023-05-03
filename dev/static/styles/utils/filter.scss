@@ -1,0 +1,85 @@
+@include min-screen(1330px) {
+    .filter {
+        width: auto;
+        gap: toRem(6);
+
+        &__item {
+            width: auto;
+            @include flex-setting(column, center, center);
+        }
+
+        &__btn {
+            @include flex-setting(column, center, center);
+            width: auto;
+            padding: toRem(8) toRem(29);
+            background-color: transparent;
+            border: toRem(1) solid #D9D9D9;
+            @include font-setting($primary-font, toRem(14), toRem(25), 400, #6c6c6c);
+            text-transform: lowercase;
+            cursor: pointer;
+            transition: 0.2s $cubic;
+
+            &[data-name="tosee"] {
+                &.is-active {
+                    border-color: #E41481;
+                    color: #E41481;
+                    transition: 0.2s $cubic;
+                }
+
+                &:hover {
+                    border-color: #E41481;
+                    color: #E41481;
+                    transition: 0.2s $cubic;
+                }
+            }
+
+            &[data-name="restaurants"] {
+                &.is-active {
+                    background-color: #00DA01;
+                    border-color: #00DA01;
+                    color: $white;
+                    transition: 0.2s $cubic;
+                }
+
+                &:hover {
+                    background-color: #00DA01;
+                    border-color: #00DA01;
+                    color: $white;
+                    transition: 0.2s $cubic;
+                }
+            }
+
+            &[data-name="hotels"] {
+                &.is-active {
+                    background-color: #E41481;
+                    border-color: #E41481;
+                    color: $white;
+                    transition: 0.2s $cubic;
+                }
+
+                &:hover {
+                    background-color: #E41481;
+                    border-color: #E41481;
+                    color: $white;
+                    transition: 0.2s $cubic;
+                }
+            }
+
+            &[data-name="winery"] {
+                &.is-active {
+                    background-color: #A61D47;
+                    border-color: #A61D47;
+                    color: $white;
+                    transition: 0.2s $cubic;
+                }
+
+                &:hover {
+                    background-color: #A61D47;
+                    border-color: #A61D47;
+                    color: $white;
+                    transition: 0.2s $cubic;
+                }
+            }
+        }
+    }
+}

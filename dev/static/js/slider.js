@@ -1,5 +1,4 @@
 const swiper = new Swiper('.swiper-contnainer-calendar', {
-    // If we need pagination
     slidesPerView: 'auto',
     spaceBetween: 20,
     speed: 500,
@@ -9,7 +8,6 @@ const swiper = new Swiper('.swiper-contnainer-calendar', {
 });
 
 const swiper2 = new Swiper('.map-popup__slider', {
-    // If we need pagination
     slidesPerView: 1,
     spaceBetween: 0,
     speed: 500,
@@ -18,6 +16,15 @@ const swiper2 = new Swiper('.map-popup__slider', {
     },
     navigation: false,
     grabCursor: true,
+});
+
+const swiper3 = new Swiper('.map__nav', {
+    slidesPerView: 'auto',
+    spaceBetween: 32,
+    speed: 500,
+    grabCursor: true,
+    slidesOffsetAfter: 20,
+    slidesOffsetBefore: 20,
 });
 
 var thisSwiper = [];

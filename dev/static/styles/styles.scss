@@ -6,13 +6,10 @@
 @import "utils/animations";
 @import "utils/fluid-font";
 @import "utils/typo";
+@import "utils/filter";
 //@include sprites($spritesheet-sprites);
 :root {
     --vh: 1vh;
-}
-
-.gradient-ball {
-    pointer-events: none;
 }
 
 html {

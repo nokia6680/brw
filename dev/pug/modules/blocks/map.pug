@@ -1,17 +1,39 @@
 section.map#places
-    .map__head
-        button(type="button").map__city Москва
-        button(type="button").map__toggle Рестораны на карте
-    .map__body.map-active
-        ul.map__nav
+    <!--Город и индикатор выбранного типа-->
+    h2.map__title.section-title Интерактивная карта
 
-            li(data-tab-name="tab-places").map__nav-item.is-active
-                span.map__nav-name Рестораны
-                    sup.map__nav-nr 14
-                    
-        .map__content
-            .map__content-tab.tab-places.list-active.is-active
-                .map__content-list.map-list
+    .map__head
+        <!--Фильтр для десктопа-->
+        ul.map__filter.filter
+            li.filter__item
+                button(type="button" data-name="tosee").filter__btn Что посмотреть
+            li.filter__item
+                button(type="button" data-name="restaurants").filter__btn Рестораны
+            li.filter__item
+                button(type="button" data-name="hotels").filter__btn Отели
+            li.filter__item
+                button(type="button" data-name="winery").filter__btn Винотеки
+        button(type="button").map__city Москва
+        button(type="button").map__toggle.js-toggle-view Рестораны на карте 
+    .map__body
+        .map__content.list-active
+            .map__content-menu
+                <!--Навигация в попапе-->
+                .map__content-nav.map__nav
+                    .swiper-wrapper
+                        .map__nav-item.swiper-slide.is-active(data-name="tosee")
+                            span.map__nav-name Что посмотреть
+                                sup.map__nav-nr 14
+                        .map__nav-item.swiper-slide(data-name="restaurants")
+                            span.map__nav-name Рестораны
+                                sup.map__nav-nr 14
+                        .map__nav-item.swiper-slide(data-name="hotels")
+                            span.map__nav-name Отели
+                                sup.map__nav-nr 14
+                        .map__nav-item.swiper-slide(data-name="winery")
+                            span.map__nav-name Винотеки
+                                sup.map__nav-nr 14
+                .map__content-list
                     <!--Элемент списка ресторана-->
                     details(data-type="both").map__content-item
                         summary.map__content-summary
@@ -20,42 +42,7 @@ section.map#places
                                 span.map__content-address Балахнинская ул., 3
                                 span.map__content-arr
                         .map__content-inner
-                            .map__content-slider(id="slider-1")
-                                .swiper-wrapper
-                                    .map__content-slide.swiper-slide
-                                        .map__content-video
-                                            video(poster="static/images/content/video-poster.jpg").map__content-player
-                                                source(src="static/videos/brw-video.mp4" type="video/mp4")
-                                                source(src="static/videos/brw-video.webm" type="video/webm")
-                                            button(type="button").map__content-play
-                                    picture.map__content-image.swiper-slide
-                                        source(srcset="static/images/content/rest-1.webp" type="image/webp")
-                                        img(src="static/images/content/rest-1.jpg" width="" height="" alt="")
-                                    picture.map__content-image.swiper-slide
-                                        source(srcset="static/images/content/rest-1.webp" type="image/webp")
-                                        img(src="static/images/content/rest-1.jpg" width="" height="" alt="")
-                                    picture.map__content-image.swiper-slide
-                                        source(srcset="static/images/content/rest-1.webp" type="image/webp")
-                                        img(src="static/images/content/rest-1.jpg" width="" height="" alt="")
-                                .swiper-pagination
-                            .map__content-status
-                                span.map__content-choice Наш выбор
-                                span.map__content-sale Промо-код
-                            p.map__content-description Здесь вам и шикарный спа-комплекс с аквазоной, массажами и новейшей аппаратной косметологией, и ресторан, созданный как локаворский. И не только продукты на кухне почти все местные, с собственной фермы, но и вина региона Нижняя Волга в The Atelier особенно привечают. Всего же в карте больше полусотни российских вин. Ферма в Обломово обеспечивает не только овощами и фруктами: стадо коров джерси даёт сыры. Хамон из мангалицы 18-месячной выдержки — один из деликатесов собственного производства. Отдельное внимание стоит уделить ремесленному хлебу. Назовите сомелье промокод чтобы получить скидку от большого русского вина.
-                            
-                            .map__content-controls
-                                a(href="" target="_self").map__content-btn.map-link Показать на карте
-                                a(href="tel:+79123456789" target="_self").map__content-btn.tel-link +7 (912) 345-67-89
-                                a(href="mailto:theatelier.ru" target="_self").map__content-btn.mail-link theatelier.ru
-                    <!--Элемент списка ресторана-->
-                    details(data-type="both").map__content-item
-                        summary.map__content-summary
-                            .map__content-label
-                                b.map__content-name The Atelier
-                                span.map__content-address Балахнинская ул., 3
-                                span.map__content-arr
-                        .map__content-inner
-                            .map__content-slider(id="slider-2")
+                            .map__content-slider(id="slider-5")
                                 .swiper-wrapper
                                     picture.map__content-image.swiper-slide
                                         source(srcset="static/images/content/rest-1.webp" type="image/webp")
@@ -84,7 +71,7 @@ section.map#places
                                 span.map__content-address Балахнинская ул., 3
                                 span.map__content-arr
                         .map__content-inner
-                            .map__content-slider(id="slider-3")
+                            .map__content-slider(id="slider-5")
                                 .swiper-wrapper
                                     picture.map__content-image.swiper-slide
                                         source(srcset="static/images/content/rest-1.webp" type="image/webp")
@@ -221,62 +208,54 @@ section.map#places
                                 a(href="" target="_self").map__content-btn.map-link Показать на карте
                                 a(href="tel:+79123456789" target="_self").map__content-btn.tel-link +79123456789
                                 a(href="mailto:theatelier.ru" target="_self").map__content-btn.mail-link theatelier.ru
-                    
-                    button(type="button").map__content-load Показать ещё
-                .map__content-frame.map-frame
-                    <!--Фрейм для Яндекс.Карты-->
-                    .map__content-ground#map
-                        
-                    <!--Выключатель карты в список (для элемента tab-places переключить класс map-active на list-active)-->
-                    button(type="button").map__content-btn Список ресторанов
-                    
-                    <!--Попап для клика по пину карты-->
-                    .map-popup.active
-                        button(type="button").map-popup__closer
-                        <!--Превью ресторана при клике на пин-->
-                        .map-popup__preview
-                            img(src="static/images/content/logo-preview.jpg" width="" height="" alt="").map-popup__image
-                            .map-popup__info
-                                h3.map-popup__title The Atelier
-                                span.map-popup__description Балахнинская ул., 3
-                        <!--Превью ресторана при клике на пин-->
-                        .map-popup__preview
-                            img(src="static/images/content/logo-preview.jpg" width="" height="" alt="").map-popup__image
-                            .map-popup__info
-                                h3.map-popup__title The Atelier
-                                span.map-popup__description Балахнинская ул., 3
-                        <!--Превью ресторана при клике на пин-->
-                        .map-popup__preview
-                            img(src="static/images/content/logo-preview.jpg" width="" height="" alt="").map-popup__image
-                            .map-popup__info
-                                h3.map-popup__title The Atelier
-                                span.map-popup__description Балахнинская ул., 3
-                        <!--Полная версия при клике-->
-                        .map-popup__full(data-type="both")
-                            .map-popup__slider
-                                .swiper-wrapper
-                                    picture.map-popup__image.swiper-slide
-                                        source(srcset="static/images/content/rest-1.webp" type="image/webp")
-                                        img(src="static/images/content/rest-1.jpg" width="" height="" alt="")
-                                    picture.map-popup__image.swiper-slide
-                                        source(srcset="static/images/content/rest-1.webp" type="image/webp")
-                                        img(src="static/images/content/rest-1.jpg" width="" height="" alt="")
-                                    picture.map-popup__image.swiper-slide
-                                        source(srcset="static/images/content/rest-1.webp" type="image/webp")
-                                        img(src="static/images/content/rest-1.jpg" width="" height="" alt="")
-                                .swiper-pagination
-                                    
-                            .map-popup__status
-                                span.map-popup__choice Наш выбор
-                                span.map-popup__sale Промо-код
+            <!--Фрейм для Яндекс.Карты-->           
+            .map__content-frame
+                <!--Сама карта-->
+                .map__content-ground#map
+                <!--Выключатель карты в список отелей/ресторанов/винотек-->
+                button(type="button").map__content-btn Список ресторанов
+                <!--Попап для клика по пину карты-->
+                .map-popup
+                    button(type="button").map-popup__closer
+                    <!--Превью ресторана при клике на пин-->
+                    .map-popup__preview
+                        img(src="static/images/content/logo-preview.jpg" width="" height="" alt="").map-popup__image
+                        .map-popup__info
+                            h3.map-popup__title The Atelier
+                            span.map-popup__description Балахнинская ул., 3
+                    <!--Превью ресторана при клике на пин-->
+                    .map-popup__preview
+                        img(src="static/images/content/logo-preview.jpg" width="" height="" alt="").map-popup__image
+                        .map-popup__info
+                            h3.map-popup__title The Atelier
+                            span.map-popup__description Балахнинская ул., 3
+                    <!--Превью ресторана при клике на пин-->
+                    .map-popup__preview
+                        img(src="static/images/content/logo-preview.jpg" width="" height="" alt="").map-popup__image
+                        .map-popup__info
+                            h3.map-popup__title The Atelier
+                            span.map-popup__description Балахнинская ул., 3
+                    <!--Полная версия при клике-->
+                    .map-popup__full(data-type="both")
+                        .map-popup__slider
+                            .swiper-wrapper
+                                picture.map-popup__image.swiper-slide
+                                    source(srcset="static/images/content/rest-1.webp" type="image/webp")
+                                    img(src="static/images/content/rest-1.jpg" width="" height="" alt="")
+                                picture.map-popup__image.swiper-slide
+                                    source(srcset="static/images/content/rest-1.webp" type="image/webp")
+                                    img(src="static/images/content/rest-1.jpg" width="" height="" alt="")
+                                picture.map-popup__image.swiper-slide
+                                    source(srcset="static/images/content/rest-1.webp" type="image/webp")
+                                    img(src="static/images/content/rest-1.jpg" width="" height="" alt="")
+                            .swiper-pagination
                                 
-                            p.map-popup__description Здесь вам и шикарный спа-комплекс с аквазоной, массажами и новейшей аппаратной косметологией, и ресторан, созданный как локаворский. И не только продукты на кухне почти все местные, с собственной фермы, но и вина региона Нижняя Волга в The Atelier особенно привечают. Всего же в карте больше полусотни российских вин. Ферма в Обломово обеспечивает не только овощами и фруктами: стадо коров джерси даёт сыры. Хамон из мангалицы 18-месячной выдержки — один из деликатесов собственного производства. Отдельное внимание стоит уделить ремесленному хлебу. Назовите сомелье промокод чтобы получить скидку от большого русского вина.
+                        .map-popup__status
+                            span.map-popup__choice Наш выбор
+                            span.map-popup__sale Промо-код
                             
-                            .map-popup__controls
-                                a(href="" target="_self").map-popup__btn.map-link Показать на карте
-                                a(href="tel:+79123456789" target="_self").map-popup__btn.tel-link +79123456789
-                                a(href="mailto:theatelier.ru" target="_self").map-popup__btn.mail-link theatelier.ru
-                            
-        button(type="button").map__btn.js-toggle Рестораны на карте
-    // Desktop
-    .map__desktop#mapDesktop
+                        p.map-popup__description Здесь вам и шикарный спа-комплекс с аквазоной, массажами и новейшей аппаратной косметологией, и ресторан, созданный как локаворский. И не только продукты на кухне почти все местные, с собственной фермы, но и вина региона Нижняя Волга в The Atelier особенно привечают. Всего же в карте больше полусотни российских вин. Ферма в Обломово обеспечивает не только овощами и фруктами: стадо коров джерси даёт сыры. Хамон из мангалицы 18-месячной выдержки — один из деликатесов собственного производства. Отдельное внимание стоит уделить ремесленному хлебу. Назовите сомелье промокод чтобы получить скидку от большого русского вина.
+                        
+                        .map-popup__controls
+                            a(href="" target="_self").map-popup__btn.map-link Показать на карте
+                            a(href="tel:+79123456789" target="_self").map-popup__btn.tel-link +79123456789                                a(href="mailto:theatelier.ru" target="_self").map-popup__btn.mail-link theatelier.ru
