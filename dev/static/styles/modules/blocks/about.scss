@@ -90,7 +90,7 @@
         }
     }
 }
-@include min-screen(1330px) {
+@include min-screen(1200px) {
     .about {
         grid-template-columns: toRem(332) toRem(438);
         --width: calc(100% - 1006px);

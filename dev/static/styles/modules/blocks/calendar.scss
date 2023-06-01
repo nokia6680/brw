@@ -178,7 +178,7 @@
         }
     }
 }
-@include min-screen(1330px) {
+@include min-screen(1200px) {
     .calendar {
         max-width: 100%;
         margin-bottom: toRem(235);
