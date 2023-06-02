@@ -118,7 +118,7 @@
         }
     }
 }
-@include min-screen(1200px) {
+@include min-screen(1330px) {
     .intro {
         max-width: toRem(1170);
         grid-template-columns: 1fr toRem(746);;

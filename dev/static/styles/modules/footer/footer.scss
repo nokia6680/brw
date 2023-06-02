@@ -318,7 +318,7 @@
         }
     }
 }
-@include min-screen(1200px) {
+@include min-screen(1330px) {
     .footer {
         --width: calc(100% - 1170px);
 
@@ -337,7 +337,15 @@
         }
 
         &__list {
-            gap: toRem(40);
+            gap: 0;
+
+            &-item {
+                margin-right: toRem(40);
+
+                &:last-of-type {
+                    margin-right: 0;
+                }
+            }
 
             &-link {
                 font-size: toRem(18);
@@ -365,7 +373,13 @@
         }
 
         &__list {
-            gap: toRem(100);
+            &-item {
+                margin-right: toRem(100);
+
+                &:last-of-type {
+                    margin-right: 0;
+                }
+            }
         }
 
         &__info {

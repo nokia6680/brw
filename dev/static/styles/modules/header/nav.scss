@@ -78,7 +78,7 @@
     }
 }
 
-@include min-screen(1200px) {
+@include min-screen(1330px) {
     .nav {
         position: relative;
         width: auto;
@@ -96,7 +96,7 @@
             justify-content: flex-end;
             align-items: center;
 
-            gap: toRem(40);
+            gap: 0;
 
             position: relative;
 
@@ -107,6 +107,11 @@
 
         &__list-item {
             width: auto;
+            margin-right: toRem(40);
+
+            &:last-of-type {
+                margin-right: 0;
+            }
         }
 
         &__list-link {
@@ -118,8 +123,12 @@
 
 @include min-screen(1920px) {
     .nav {
-        &__list {
-            gap: toRem(50);
+        &__list-item {
+            margin-right: toRem(50);
+
+            &:last-of-type {
+                margin-right: 0;
+            }
         }
 
         &__list-link {

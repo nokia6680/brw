@@ -164,7 +164,7 @@
     }
 }
 
-@include min-screen(1200px) {
+@include min-screen(1330px) {
     .news {
         --width: calc(100% - 1140px);
         margin-bottom: toRem(160);

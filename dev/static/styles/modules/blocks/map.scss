@@ -1043,7 +1043,7 @@
     }
 }
 
-@include min-screen(1200px) {
+@include min-screen(1330px) {
     .map {
         height: auto;
         margin-bottom: toRem(160);

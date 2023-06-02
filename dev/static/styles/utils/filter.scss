@@ -1,11 +1,15 @@
-@include min-screen(1200px) {
+@include min-screen(1330px) {
     .filter {
         width: auto;
-        gap: toRem(6);
 
         &__item {
             width: auto;
+            margin-right: toRem(6);
             @include flex-setting(column, center, center);
+
+            &:last-of-type {
+                margin-right: 0;
+            }
         }
 
         &__btn {

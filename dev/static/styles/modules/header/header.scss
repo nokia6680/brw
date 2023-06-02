@@ -60,7 +60,7 @@
     }
 }
 
-@include min-screen(1200px) {
+@include min-screen(1330px) {
     .header {
         --width: calc(100% - 1170px);
         padding: toRem(26) calc(var(--width) / 2);
