@@ -152,7 +152,7 @@
         }
     }
 }
-@include min-screen(1330px) {
+@include min-screen(1200px) {
     .test {
         max-width: toRem(1250);
         display: grid;

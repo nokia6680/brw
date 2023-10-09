@@ -318,7 +318,7 @@
         }
     }
 }
-@include min-screen(1330px) {
+@include min-screen(1200px) {
     .footer {
         --width: calc(100% - 1170px);
 

@@ -840,6 +840,7 @@
                 width: 100%;
                 overflow: auto;
                 margin-bottom: toRem(20);
+                padding-bottom: toRem(64);
 
                 -ms-overflow-style: none;  /* IE 10+ */
                 scrollbar-width: none; /* Firefox */
@@ -1043,7 +1044,7 @@
     }
 }
 
-@include min-screen(1330px) {
+@include min-screen(1200px) {
     .map {
         height: auto;
         margin-bottom: toRem(160);
@@ -1095,6 +1096,7 @@
 
             &-menu {
                 z-index: 10;
+                min-height: toRem(580);
                 background: #F9F9F9;
                 box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25), 0px 4px 40px rgba(0, 0, 0, 0.25);
                 max-width: toRem(375);
@@ -1108,7 +1110,7 @@
                     width: 100%;
                     height: toRem(44);
                     background: linear-gradient(0deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
-                    bottom: toRem(20);
+                    bottom: 0;
                     left: 50%;
                     transform: translateX(-50%);
 
@@ -1116,9 +1118,19 @@
                 }
             }
 
+            &-tab {
+                width: 100%;
+            }
+
+            &-wrap {
+                padding: 0 1.25rem;
+            }
+
             &-list {
                 background-color: transparent;
                 max-height: toRem(515);
+                @include flex-setting(column, flex-start, flex-start);
+                padding: toRem(24) 0 toRem(64) 0;
             }
 
             &-item:first-of-type {
@@ -1139,6 +1151,7 @@
         }
 
         &__nav {
+            min-height: toRem(64);
             padding: toRem(20) 0;
             margin: 0;
         }
